@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.paint.Color?>
+<?import java.lang.String?>
+
+<?import javafx.scene.image.ImageView?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="at.limpidness.juliaset.JuliaSetController"
+            prefHeight="1085.0" prefWidth="1000.0">
+    <fx:define>
+        <String fx:id="borderRed" fx:value="-fx-border-color: #f00;"/>
+        <Insets fx:id="defaultInsets" topRightBottomLeft="15"/>
+    </fx:define>
+
+    <top>
+        <BorderPane>
+            <left>
+                <HBox spacing="20" alignment="CENTER_LEFT" padding="$defaultInsets">
+                    <Label text="Real:"/>
+                    <TextField fx:id="inputReal" promptText="-0.8" onAction="#runJuliaAction"/>
+                    <Label text="Imaginary:"/>
+                    <TextField fx:id="inputImaginary" promptText="0.156" onAction="#runJuliaAction"/>
+                    <Button text="Compute" onAction="#runJuliaAction"/>
+                    <Label fx:id="labelError" style="-fx-color: #f00;"/>
+                </HBox>
+            </left>
+
+            <right>
+                <HBox spacing="20" alignment="CENTER_RIGHT" padding="$defaultInsets">
+                    <ColorPicker fx:id="colorPicker">
+                        <value>
+                            <Color red="1.0"/>
+                        </value>
+                    </ColorPicker>
+                    <Button text="Save" fx:id="saveButton" onAction="#saveAction"/>
+                </HBox>
+            </right>
+        </BorderPane>
+    </top>
+    <center>
+        <ImageView fx:id="imageView"/>
+    </center>
+
+</BorderPane>
